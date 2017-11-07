@@ -1,0 +1,7 @@
+<launch>
+
+<node pkg="camera_test" type="astra_camera_tf1" name="astra_camera_tf1"/>
+
+<node pkg="camera_test" type="astra_camera_tf2" name="astra_camera_tf2"/>
+
+</launch> 
