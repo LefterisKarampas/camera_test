@@ -9,7 +9,10 @@ project(camera_test)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
   cv_bridge
+  roscpp
+  rospy
   image_transport
+  message_generation
   roscpp
   sensor_msgs
   std_msgs
@@ -27,12 +30,13 @@ include_directories(${PCL_INCLUDE_DIRS})
 link_directories(${PCL_LIBRARY_DIRS})
 add_definitions(${PCL_DEFINITIONS})
 
-catkin_package(
-  INCLUDE_DIRS include
-  LIBRARIES camera_test
-  CATKIN_DEPENDS cv_bridge image_transport roscpp sensor_msgs std_msgs
-#  DEPENDS system_lib
+
+add_message_files(
+   FILES
+   coke.msg
 )
+
+generate_messages()
 
 ###########
 ## Build ##
@@ -40,6 +44,14 @@ catkin_package(
 
 ## Specify additional locations of header files
 ## Your package locations should be listed before other locations
+
+catkin_package(
+  INCLUDE_DIRS include
+  LIBRARIES camera_test
+  CATKIN_DEPENDS cv_bridge image_transport roscpp sensor_msgs std_msgs message_runtime
+#  DEPENDS system_lib
+)
+
 include_directories(
 # include
   ${catkin_INCLUDE_DIRS}
