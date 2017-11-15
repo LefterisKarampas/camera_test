@@ -102,6 +102,17 @@ include_directories(
  target_link_libraries(pcl ${Boost_LIBRARIES} ${catkin_LIBRARIES} ${PCL_LIBRARIES})
 
 
+add_executable(move_coke_tf src/move_coke_tf.cpp)
+ target_link_libraries(move_coke_tf ${Boost_LIBRARIES} ${catkin_LIBRARIES} ${PCL_LIBRARIES})
+
+
+add_executable(pass_filter src/pass_filter.cpp)
+ target_link_libraries(pass_filter ${Boost_LIBRARIES} ${catkin_LIBRARIES} ${PCL_LIBRARIES})
+
+add_executable(pass_filter_color src/pass_filter_color.cpp)
+ target_link_libraries(pass_filter_color ${Boost_LIBRARIES} ${catkin_LIBRARIES} ${PCL_LIBRARIES})
+
+
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
 ## target back to the shorter version for ease of user use
